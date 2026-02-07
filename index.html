@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Mensive For My Love<3</title>
+<title>Happy Mensive For My Love ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Comic+Neue:wght@300;400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -54,6 +54,7 @@ h2{font-size:28px;color:#5c7cff;}
 <!-- AUDIO MUSIK -->
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
 </audio>
 
 <div class="bg-gradient"></div>
@@ -120,10 +121,13 @@ for(let i=0;i<100;i++){
 
 <script>
 const music=document.getElementById("bgMusic");
+
+// Play musik saat klik pertama
 document.addEventListener("click",()=>{
  if(music.paused) music.play();
 },{once:true});
 
+// Halaman interaktif
 let current='p1';
 setTimeout(()=>nextPage('p2'),5000);
 
