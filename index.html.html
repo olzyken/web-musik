@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mensive For My Love<3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Comic+Neue:wght@300;400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  background:#ffedf0;
+}
+
+.bg-gradient{
+  position:fixed;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:linear-gradient(160deg,#ffb3c1,#c7d2ff,#fef5f7,#ffd6ea);
+  animation:bgAnim 30s ease infinite;
+  z-index:0;
+  filter:blur(40px);
+}
+
+@keyframes bgAnim{
+  0%{transform:rotate(0deg)}
+  50%{transform:rotate(45deg)}
+  100%{transform:rotate(0deg)}
+}
+
+.page{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s;
+  pointer-events:none;
+}
+
+.page.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+  z-index:2;
+}
+
+.card{
+  width:90%;
+  max-width:420px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  border-radius:26px;
+  padding:30px;
+  text-align:center;
+}
+
+.script{font-family:'Dancing Script',cursive}
+.funny{font-family:'Comic Neue',cursive}
+
+h1{font-size:42px;color:#ff6fae}
+h2{font-size:28px;color:#5c7cff}
+
+.btn,.menu-btn{
+  margin-top:20px;
+  padding:10px 22px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+}
+
+.menu-btn{
+  display:block;
+  margin:12px auto;
+}
+
+.cake-wrap{
+  font-size:90px;
+  margin:25px 0;
+  cursor:pointer;
+  position:relative;
+}
+
+.flame{
+  position:absolute;
+  top:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:32px;
+  animation:flicker 1s infinite;
+}
+
+@keyframes flicker{
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.2)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-gradient"></div>
+
+<!-- AUDIO (AMAN UNTUK GITHUB PAGES) -->
+<audio id="bgm" loop>
+  <source src="./audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <div class="card">
+    <h1 class="script">Happy Mensive</h1>
+    <h2 class="script funny">Two Month</h2>
+    <div class="funny">8 Desember 2025 - 8 Februari 2026</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <div class="card">
+    <h2 class="script funny">Tiup Lilinnya 🎂</h2>
+    <div class="cake-wrap" onclick="blow()">
+      🎂
+      <div class="flame" id="flame">🔥</div>
+    </div>
+    <div class="funny">Tap lilin</div>
+  </div>
+</div>
+
+<!-- LOVE MENU -->
+<div class="page" id="pLove">
+  <div class="card">
+    <h2 class="script funny">Love Menu 💗</h2>
+    <button class="menu-btn" onclick="nextPage('pCute')">🧸 Mode Gemas</button>
+    <button class="menu-btn" onclick="nextPage('pPantun')">🎵 Pantun</button>
+    <button class="menu-btn" onclick="nextPage('pLetter')">💌 Surat</button>
+    <button class="menu-btn" onclick="nextPage('pUcapan')">💖 Ucapan</button>
+    <button class="menu-btn" onclick="nextPage('pWish')">🌟 Wish</button>
+    <button class="btn" onclick="nextPage('pEnd')">Lanjut 💗</button>
+  </div>
+</div>
+
+<!-- MODE GEMAS -->
+<div class="page" id="pCute">
+  <div class="card">
+    <h2 class="script funny">Mode Gemas 🧸</h2>
+    <p class="funny">
+      Hiii sayang 🤍<br>
+      Makasih ya udah nemenin dua bulan ini.<br>
+      Semoga kita selalu bareng 🥰
+    </p>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- PANTUN -->
+<div class="page" id="pPantun">
+  <div class="card">
+    <h2 class="script funny">Pantun 💕</h2>
+    <p class="funny">
+      Pergi sore lihat senja,<br>
+      Senyummu bikin jatuh cinta.<br>
+      Aku nggak minta apa-apa,<br>
+      Cukup kamu selalu ada 💗
+    </p>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- SURAT -->
+<div class="page" id="pLetter">
+  <div class="card">
+    <h2 class="script funny">Surat Kecil 💌</h2>
+    <p class="funny">
+      Kalau capek, istirahat ya.<br>
+      Kalau sedih, cerita ke aku.<br>
+      Kamu berharga 🤍
+    </p>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- UCAPAN -->
+<div class="page" id="pUcapan">
+  <div class="card">
+    <h2 class="script funny">Ucapan 💖</h2>
+    <p class="funny">
+      Happy Mensive ke-2 ya sayang!<br>
+      Makasih udah bertahan sama aku 🤍
+    </p>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- WISH -->
+<div class="page" id="pWish">
+  <div class="card">
+    <h2 class="script funny">Wish 🌟</h2>
+    <p class="funny">
+      Semoga kita selalu bersama<br>
+      dan saling jaga sampai kapanpun 💞
+    </p>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- END -->
+<div class="page" id="pEnd">
+  <div class="card">
+    <h1 class="script funny">Happy Two Month ❤️</h1>
+    <p class="funny">From Olip 🤍</p>
+  </div>
+</div>
+
+<script>
+let current='p1';
+
+setTimeout(()=>nextPage('p2'),5000);
+
+function nextPage(id){
+  document.getElementById(current).classList.remove('active');
+  document.getElementById(id).classList.add('active');
+  current=id;
+}
+
+function blow(){
+  document.getElementById('flame').style.display='none';
+
+  // PLAY AUDIO SETELAH INTERAKSI (AMAN)
+  const music=document.getElementById('bgm');
+  music.play().catch(()=>{});
+
+  setTimeout(()=>nextPage('pLove'),1200);
+}
+</script>
+
+</body>
+</html>
