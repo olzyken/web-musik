@@ -3,77 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Mensive For My Love &lt;3</title>
+<title>Happy Mensive ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Comic+Neue:wght@300;400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  min-height:100svh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  background:#ffedf0;
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
   overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  background:#ffedf0;
 }
 
-/* Background */
+/* BACKGROUND */
 .bg-gradient{
   position:fixed;
-  width:200%;
-  height:200%;
-  top:-50%;
-  left:-50%;
+  inset:-50%;
   background:linear-gradient(160deg,#ffb3c1,#c7d2ff,#fef5f7,#ffd6ea);
-  animation:bgAnim 40s ease infinite;
+  animation:bg 30s ease infinite;
   filter:blur(40px);
   z-index:0;
 }
-@keyframes bgAnim{
+@keyframes bg{
   0%{transform:rotate(0deg)}
-  50%{transform:rotate(45deg)}
+  50%{transform:rotate(40deg)}
   100%{transform:rotate(0deg)}
 }
 
-/* Sparkle */
-.sparkle-bg{
+/* SPARKLE */
+.sparkle{
   position:fixed;
-  width:4px;
-  height:4px;
+  width:4px;height:4px;
   border-radius:50%;
-  pointer-events:none;
-  z-index:1;
-  animation:float 12s linear infinite;
+  animation:float 8s linear infinite;
 }
 @keyframes float{
-  from{transform:translateY(0)}
-  to{transform:translateY(-900px)}
+  from{transform:translateY(110vh)}
+  to{transform:translateY(-120vh)}
 }
 
-/* Page system */
+/* PAGE */
 .page{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   display:flex;
   justify-content:center;
   align-items:center;
   opacity:0;
-  transform:translateY(40px);
-  transition:1.2s;
+  transform:translateY(30px);
+  transition:.8s;
   pointer-events:none;
+  z-index:2;
 }
 .page.active{
   opacity:1;
-  transform:translateY(0);
+  transform:none;
   pointer-events:auto;
-  z-index:2;
 }
 
-/* Card */
+/* CARD */
 .card{
   width:90%;
   max-width:420px;
@@ -82,77 +72,69 @@ body{
   border-radius:26px;
   padding:30px;
   text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
+.script{font-family:'Dancing Script',cursive;}
+.funny{font-family:'Comic Neue',cursive;}
 
-.script{font-family:'Dancing Script',cursive}
-.funny{font-family:'Comic Neue',cursive}
-h1{font-size:42px;color:#ff6fae}
+h1{font-size:40px;color:#ff6fae}
 h2{font-size:28px;color:#5c7cff}
-.small{font-size:13px;color:#555;margin-top:10px}
-.text{font-size:15px;line-height:2;margin-top:18px}
+.small{font-size:13px;color:#555}
+.text{font-size:15px;line-height:2;margin-top:15px}
 
-.btn,.menu-btn{
+.btn{
   margin-top:20px;
   padding:10px 22px;
   border-radius:20px;
-  border:1px solid #ddd;
-  background:#fff;
+  border:none;
+  background:#ffd6ea;
   cursor:pointer;
   transition:.3s;
 }
-.btn:hover,.menu-btn:hover{transform:scale(1.05)}
-.menu-btn{display:block;margin:14px auto}
+.btn:hover{transform:scale(1.07)}
 
-/* Cake */
-.cake-wrap{
+/* CAKE */
+.cake{
   font-size:90px;
-  margin:25px 0;
+  margin:20px 0;
   cursor:pointer;
   position:relative;
 }
 .flame{
   position:absolute;
-  top:-22px;
+  top:-20px;
   left:50%;
   transform:translateX(-50%);
-  font-size:32px;
-  animation:flicker 1.2s infinite;
+  animation:flicker 1s infinite;
 }
 @keyframes flicker{
   0%,100%{transform:translateX(-50%) scale(1)}
   50%{transform:translateX(-50%) scale(1.3)}
 }
 
-/* Typing */
-.type-text{
-  font-size:16px;
-  line-height:2.2;
-  white-space:pre-line;
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  animation:pop 2.5s ease-out forwards;
 }
-.cursor{
-  display:inline-block;
-  width:6px;
-  height:16px;
-  background:#ff6fae;
-  margin-left:4px;
-  animation:blink 1s infinite;
-}
-@keyframes blink{
-  0%,50%,100%{opacity:1}
-  25%,75%{opacity:0}
+@keyframes pop{
+  to{
+    transform:translate(var(--x),var(--y)) rotate(720deg);
+    opacity:0;
+  }
 }
 
-/* Flower animation */
-@keyframes flowerUp{
-  from{transform:translateY(0) rotate(0deg);opacity:1}
-  to{transform:translateY(-130vh) rotate(360deg);opacity:0}
-}
-
-/* Ending hearts */
-@keyframes floatUp{
-  from{transform:translateY(0);opacity:1}
-  to{transform:translateY(-120vh);opacity:0}
+/* AUDIO */
+.audio-box{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  background:rgba(255,255,255,.7);
+  padding:8px 12px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
 }
 </style>
 </head>
@@ -161,203 +143,76 @@ h2{font-size:28px;color:#5c7cff}
 
 <div class="bg-gradient"></div>
 
-<!-- AUDIO -->
-<audio id="bgMusic" loop>
-  <source src="./audio/music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-/* Sparkle background */
-const colors=['#ff6fae','#000','#5c7cff'];
-for(let i=0;i<90;i++){
-  const s=document.createElement('div');
-  s.className='sparkle-bg';
-  s.style.left=Math.random()*100+'%';
-  s.style.top=(Math.random()*120)+'%';
-  s.style.background=colors[Math.floor(Math.random()*colors.length)];
-  s.style.animationDuration=(10+Math.random()*6)+'s';
-  document.body.appendChild(s);
-}
-
-/* Audio safe play */
-function playMusic(){
-  const m=document.getElementById('bgMusic');
-  if(m.paused){
-    m.volume=0.8;
-    m.play().catch(()=>{});
-  }
-}
-</script>
+<!-- AUDIO (GITHUB SAFE) -->
+<div class="audio-box">
+  <audio controls loop>
+    <source src="./lagu.mp3" type="audio/mpeg">
+  </audio>
+</div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="p1">
   <div class="card">
     <h1 class="script">Happy Mensive</h1>
-    <h2 class="script funny">Two Month</h2>
-    <div class="small funny">8 Desember 2025 - 8 Februari 2026</div>
+    <h2 class="script funny">Two Month ❤️</h2>
+    <div class="small">8 Des 2025 – 8 Feb 2026</div>
   </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="p2">
   <div class="card">
-    <h2 class="script funny">Tiup Lilinnya 🎂</h2>
-    <div class="cake-wrap" onclick="blow()">🎂<div class="flame" id="flame">🔥</div></div>
-    <div class="small funny">Tap lilin</div>
-  </div>
-</div>
-
-<!-- LOVE MENU -->
-<div class="page" id="pLove">
-  <div class="card">
-    <h2 class="script funny">Love Menu 💗</h2>
-    <button class="menu-btn" onclick="cuteMode()">🧸 Mode Gemas</button>
-    <button class="menu-btn" onclick="nextPage('pPantun')">🎵 Pantun</button>
-    <button class="menu-btn" onclick="nextPage('pLetter')">💌 Surat</button>
-    <button class="menu-btn" onclick="nextPage('pUcapan')">💖 Ucapan</button>
-    <button class="menu-btn" onclick="nextPage('pWish')">🌟 Wish</button>
-    <button class="btn" onclick="nextPage('pEnd')">Lanjut 💗</button>
-  </div>
-</div>
-
-<!-- MODE GEMAS -->
-<div class="page" id="pCute">
-  <div class="card">
-    <h2 class="script funny">Mode Gemas 🧸</h2>
-    <div id="typeText" class="type-text"></div>
-  </div>
-</div>
-
-<!-- PANTUN -->
-<div class="page" id="pPantun">
-  <div class="card">
-    <h2 class="script funny">Pantun 💕</h2>
-    <div class="text funny">
-      Pergi sore lihat senja,<br>
-      Senyummu bikin jatuh cinta.<br>
-      Aku nggak minta apa-apa,<br>
-      Cukup kamu selalu ada 💗
-    </div>
-    <button class="btn" onclick="nextPage('pLove')">Balik</button>
-  </div>
-</div>
-
-<!-- SURAT -->
-<div class="page" id="pLetter">
-  <div class="card">
-    <h2 class="script funny">Surat Kecil 💌</h2>
-    <div class="text funny">
-      Kalau capek, istirahat ya.<br>
-      Kalau sedih, cerita ke aku.<br>
-      Kamu berharga 🤍
-    </div>
-    <button class="btn" onclick="nextPage('pLove')">Balik</button>
-  </div>
-</div>
-
-<!-- UCAPAN -->
-<div class="page" id="pUcapan">
-  <div class="card">
-    <h2 class="script funny">Ucapan 💖</h2>
-    <div class="text funny">
-      Happy Mensive ke-2 ya sayang!<br>
-      Makasih udah bertahan sama aku 🤍
-    </div>
-    <button class="btn" onclick="nextPage('pLove')">Balik</button>
-  </div>
-</div>
-
-<!-- WISH -->
-<div class="page" id="pWish">
-  <div class="card">
-    <h2 class="script funny">Wish 🌟</h2>
-    <div class="text funny">
-      Semoga kita selalu bersama<br>
-      dan saling jaga sampai kapanpun 💞
-    </div>
-    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+    <h2 class="script funny">Tiup Lilin 🎂</h2>
+    <div class="cake" onclick="blow()">🎂<div class="flame">🔥</div></div>
+    <div class="small">tap kuenya ya</div>
   </div>
 </div>
 
 <!-- END -->
-<div class="page" id="pEnd">
+<div class="page" id="p3">
   <div class="card">
-    <h1 class="script funny">Happy Two Month ❤️</h1>
-    <p class="funny">From Olip 🤍</p>
+    <h1 class="script funny">I Love You ❤️</h1>
+    <div class="small">From Olip</div>
   </div>
 </div>
 
 <script>
-let current='p1';
-setTimeout(()=>nextPage('p2'),6000);
+console.log("JS JALAN");
 
-function nextPage(id){
-  document.getElementById(current).classList.remove('active');
+/* sparkles */
+const colors=['#ff6fae','#5c7cff','#000'];
+for(let i=0;i<120;i++){
+  const s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=Math.random()*100+'%';
+  s.style.background=colors[Math.floor(Math.random()*colors.length)];
+  s.style.animationDuration=(5+Math.random()*6)+'s';
+  document.body.appendChild(s);
+}
+
+/* page control */
+let cur='p1';
+setTimeout(()=>go('p2'),4000);
+function go(id){
+  document.getElementById(cur).classList.remove('active');
   document.getElementById(id).classList.add('active');
-  current=id;
-  if(id==='pEnd') endEffect();
+  cur=id;
 }
 
-/* Cake */
+/* cake */
 function blow(){
-  document.getElementById('flame').style.display='none';
-  playMusic();
-  setTimeout(()=>nextPage('pLove'),1500);
-}
-
-/* Mode Gemas */
-function cuteMode(){
-  playMusic();
-  spawnFlowers();
-  nextPage('pCute');
-  const text=`Hiii sayang 🤍
-Makasih ya udah nemenin dua bulan ini.
-Semoga kita selalu bareng 🥰`;
-  const el=document.getElementById('typeText');
-  el.innerHTML='';
-  let i=0;
-  const typing=setInterval(()=>{
-    el.innerHTML=text.slice(0,i)+'<span class="cursor"></span>';
-    i++;
-    if(i>text.length){
-      clearInterval(typing);
-      el.innerHTML=text;
-      setTimeout(()=>nextPage('pLove'),2500);
-    }
-  },70);
-}
-
-/* Flowers */
-function spawnFlowers(){
-  for(let i=0;i<30;i++){
-    const f=document.createElement('div');
-    f.innerText='🌸';
-    f.style.position='fixed';
-    f.style.left=Math.random()*100+'%';
-    f.style.top='110%';
-    f.style.fontSize=(20+Math.random()*20)+'px';
-    f.style.animation=`flowerUp ${8+Math.random()*5}s linear`;
-    f.style.zIndex='4';
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(),13000);
+  for(let i=0;i<80;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.innerText='✨';
+    c.style.left='50%';
+    c.style.top='50%';
+    c.style.setProperty('--x',(Math.random()*400-200)+'px');
+    c.style.setProperty('--y',(Math.random()*-400)+'px');
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),2500);
   }
-}
-
-/* Ending hearts */
-function endEffect(){
-  playMusic();
-  for(let i=0;i<35;i++){
-    const e=document.createElement('div');
-    e.innerText='💗';
-    e.style.position='fixed';
-    e.style.left=Math.random()*100+'%';
-    e.style.top='100%';
-    e.style.fontSize=(18+Math.random()*22)+'px';
-    e.style.animation=`floatUp ${6+Math.random()*4}s linear`;
-    e.style.zIndex='5';
-    document.body.appendChild(e);
-    setTimeout(()=>e.remove(),10000);
-  }
+  setTimeout(()=>go('p3'),800);
 }
 </script>
 
