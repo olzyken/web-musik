@@ -4,52 +4,173 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Mensive For My Love<3</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Comic+Neue:wght@300;400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;overflow:hidden;height:100vh;display:flex;justify-content:center;align-items:center;position:relative;background:#ffedf0;}
-.bg-gradient{position:fixed;width:200%;height:200%;top:-50%;left:-50%;background:linear-gradient(160deg,#ffb3c1,#c7d2ff,#fef5f7,#ffd6ea);animation:bgAnim 30s ease infinite;z-index:0;filter:blur(40px);}
-@keyframes bgAnim{0%{transform:rotate(0deg) translate(0,0);}50%{transform:rotate(45deg) translate(50px,50px);}100%{transform:rotate(0deg) translate(0,0);}}
-.sparkle-bg{position:fixed;width:4px;height:4px;border-radius:50%;pointer-events:none;z-index:1;animation:float 8s linear infinite;}
-@keyframes float{0%{transform:translateY(0);}100%{transform:translateY(-800px);}}
-.star{position:fixed;width:10px;height:10px;background:radial-gradient(#fff,#0000);border-radius:50%;animation:twinkle 3s ease-in-out infinite alternate;z-index:0;}
-@keyframes twinkle{0%{opacity:0.2;}50%{opacity:1;}100%{opacity:0.2;}}
-.page{position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.8s ease, transform 0.8s ease;transform:translateY(30px);pointer-events:none;}
-.page.active{opacity:1;transform:translateY(0);z-index:2;pointer-events:auto;}
-.card{max-width:420px;width:90%;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-radius:26px;padding:30px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.08);position:relative;z-index:3;}
-.script{font-family:'Dancing Script',cursive;}
-.funny{font-family:'Comic Neue',cursive;}
-h1{font-size:42px;color:#ff6fae;margin-bottom:15px;}
-h2{font-size:28px;color:#5c7cff;margin-bottom:10px;}
-.small{font-size:13px;color:#555;margin-top:10px;}
-.text{font-size:15px;line-height:2;margin-top:18px;}
-.btn,.menu-btn{margin-top:20px;padding:10px 22px;border-radius:20px;border:1px solid rgba(0,0,0,0.1);background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s;}
-.btn:hover,.menu-btn:hover{transform:scale(1.05);}
-.menu-btn{display:block;margin:15px auto;}
-.cake-wrap{margin:25px 0;font-size:90px;position:relative;cursor:pointer;}
-.flame{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:32px;animation:flicker 1s infinite;}
-@keyframes flicker{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.2);}}
-.confetti,.flower,.sparkle,.sparkle-end{position:fixed;top:50%;left:50%;pointer-events:none;z-index:5;}
-.confetti{font-size:18px;animation:pop 2s ease-out forwards;}
-@keyframes pop{from{opacity:1;transform:translate(0,0) rotate(0deg) scale(0.6);}to{opacity:0;transform:translate(var(--x),var(--y)) rotate(720deg) scale(1);}}
-.flower{font-size:20px;animation:flower 2.5s ease-out forwards;}
-@keyframes flower{from{opacity:1;transform:translate(0,0) scale(0.5);}to{opacity:0;transform:translate(var(--x),var(--y)) scale(1);}}
-.type-text{font-size:16px;line-height:2.1;margin-top:20px;white-space:pre-line;}
-.cursor{display:inline-block;width:6px;height:16px;background:#ff6fae;margin-left:3px;animation:blink 1s infinite;}
-@keyframes blink{0%,50%,100%{opacity:1}25%,75%{opacity:0}}
+
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  background:#ffedf0;
+}
+
+/* Background */
+.bg-gradient{
+  position:fixed;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:linear-gradient(160deg,#ffb3c1,#c7d2ff,#fef5f7,#ffd6ea);
+  animation:bgAnim 40s ease infinite;
+  filter:blur(40px);
+  z-index:0;
+}
+
+@keyframes bgAnim{
+  0%{transform:rotate(0deg)}
+  50%{transform:rotate(45deg)}
+  100%{transform:rotate(0deg)}
+}
+
+/* Sparkle */
+.sparkle-bg{
+  position:fixed;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+  animation:float 12s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-900px)}
+}
+
+/* Page system */
+.page{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1.2s ease, transform 1.2s ease;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.page.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+  z-index:2;
+}
+
+/* Card */
+.card{
+  width:90%;
+  max-width:420px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  border-radius:26px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.script{font-family:'Dancing Script',cursive}
+.funny{font-family:'Comic Neue',cursive}
+
+h1{font-size:42px;color:#ff6fae}
+h2{font-size:28px;color:#5c7cff}
+
+.small{font-size:13px;color:#555;margin-top:10px}
+.text{font-size:15px;line-height:2;margin-top:18px}
+
+.btn,.menu-btn{
+  margin-top:20px;
+  padding:10px 22px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover,.menu-btn:hover{transform:scale(1.05)}
+
+.menu-btn{
+  display:block;
+  margin:14px auto;
+}
+
+/* Cake */
+.cake-wrap{
+  font-size:90px;
+  margin:25px 0;
+  cursor:pointer;
+  position:relative;
+}
+
+.flame{
+  position:absolute;
+  top:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:32px;
+  animation:flicker 1.2s infinite;
+}
+
+@keyframes flicker{
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.3)}
+}
+
+/* Typing */
+.type-text{
+  font-size:16px;
+  line-height:2.2;
+  white-space:pre-line;
+}
+
+.cursor{
+  display:inline-block;
+  width:6px;
+  height:16px;
+  background:#ff6fae;
+  margin-left:4px;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%,50%,100%{opacity:1}
+  25%,75%{opacity:0}
+}
+
+/* Mobile fix */
+@media(max-width:600px){
+  h1{font-size:38px}
+  h2{font-size:26px}
+  .text,.type-text{font-size:17px}
+}
 </style>
 </head>
 
 <body>
 
-<!-- AUDIO (TAMBAHAN SAJA, TIDAK MENGUBAH APAPUN) -->
-<audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <div class="bg-gradient"></div>
 
-<!-- Sparkle floating -->
 <script>
 const colors=['#ff6fae','#000','#5c7cff'];
 for(let i=0;i<100;i++){
@@ -57,32 +178,144 @@ for(let i=0;i<100;i++){
   s.className='sparkle-bg';
   s.style.left=Math.random()*100+'%';
   s.style.top=(Math.random()*120)+'%';
-  let size=2+Math.random()*3;
-  s.style.width=size+'px';
-  s.style.height=size+'px';
   s.style.background=colors[Math.floor(Math.random()*colors.length)];
-  s.style.animationDuration=(6+Math.random()*5)+'s';
+  s.style.animationDuration=(10+Math.random()*6)+'s';
   document.body.appendChild(s);
-}
-for(let i=0;i<15;i++){
-  let st=document.createElement('div');
-  st.className='star';
-  st.style.left=Math.random()*100+'%';
-  st.style.top=Math.random()*100+'%';
-  st.style.width=(6+Math.random()*8)+'px';
-  st.style.height=st.style.width;
-  document.body.appendChild(st);
 }
 </script>
 
-<!-- SEMUA PAGE & SCRIPT ASLI KAMU TETAP -->
-<!-- (TIDAK DIUBAH SAMA SEKALI) -->
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <div class="card">
+    <h1 class="script">Happy Mensive</h1>
+    <h2 class="script funny">Two Month</h2>
+    <div class="small funny">8 Desember 2025 - 8 Februari 2026</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <div class="card">
+    <h2 class="script funny">Tiup Lilinnya 🎂</h2>
+    <div class="cake-wrap" onclick="blow()">🎂<div class="flame" id="flame">🔥</div></div>
+    <div class="small funny">Tap lilin</div>
+  </div>
+</div>
+
+<!-- LOVE MENU -->
+<div class="page" id="pLove">
+  <div class="card">
+    <h2 class="script funny">Love Menu 💗</h2>
+    <button class="menu-btn" onclick="cuteMode()">🧸 Mode Gemas</button>
+    <button class="menu-btn" onclick="nextPage('pPantun')">🎵 Pantun</button>
+    <button class="menu-btn" onclick="nextPage('pLetter')">💌 Surat</button>
+    <button class="menu-btn" onclick="nextPage('pUcapan')">💖 Ucapan</button>
+    <button class="menu-btn" onclick="nextPage('pWish')">🌟 Wish</button>
+    <button class="btn" onclick="nextPage('pEnd')">Lanjut 💗</button>
+  </div>
+</div>
+
+<!-- MODE GEMAS -->
+<div class="page" id="pCute">
+  <div class="card">
+    <h2 class="script funny">Mode Gemas 🧸</h2>
+    <div id="typeText" class="type-text"></div>
+  </div>
+</div>
+
+<!-- PANTUN -->
+<div class="page" id="pPantun">
+  <div class="card">
+    <h2 class="script funny">Pantun 💕</h2>
+    <div class="text funny">
+      Pergi sore lihat senja,<br>
+      Senyummu bikin jatuh cinta.<br>
+      Aku nggak minta apa-apa,<br>
+      Cukup kamu selalu ada 💗
+    </div>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- SURAT -->
+<div class="page" id="pLetter">
+  <div class="card">
+    <h2 class="script funny">Surat Kecil 💌</h2>
+    <div class="text funny">
+      Kalau capek, istirahat ya.<br>
+      Kalau sedih, cerita ke aku.<br>
+      Kamu berharga 🤍
+    </div>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- UCAPAN -->
+<div class="page" id="pUcapan">
+  <div class="card">
+    <h2 class="script funny">Ucapan 💖</h2>
+    <div class="text funny">
+      Happy Mensive ke-2 ya sayang!<br>
+      Makasih udah bertahan sama aku 🤍
+    </div>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- WISH -->
+<div class="page" id="pWish">
+  <div class="card">
+    <h2 class="script funny">Wish 🌟</h2>
+    <div class="text funny">
+      Semoga kita selalu bersama<br>
+      dan saling jaga sampai kapanpun 💞
+    </div>
+    <button class="btn" onclick="nextPage('pLove')">Balik</button>
+  </div>
+</div>
+
+<!-- END -->
+<div class="page" id="pEnd">
+  <div class="card">
+    <h1 class="script funny">Happy Two Month ❤️</h1>
+    <p class="funny">From Olip 🤍</p>
+  </div>
+</div>
 
 <script>
-document.addEventListener('click', () => {
-  const audio = document.getElementById('bgm');
-  if (audio) audio.play();
-}, { once: true });
+let current='p1';
+
+setTimeout(()=>requestAnimationFrame(()=>nextPage('p2')),6000);
+
+function nextPage(id){
+  document.getElementById(current).classList.remove('active');
+  document.getElementById(id).classList.add('active');
+  current=id;
+}
+
+function blow(){
+  document.getElementById('flame').style.display='none';
+  setTimeout(()=>nextPage('pLove'),1500);
+}
+
+function cuteMode(){
+  nextPage('pCute');
+  const text=`Hiii sayang 🤍
+Makasih ya udah nemenin dua bulan ini.
+Semoga kita selalu bareng 🥰`;
+  const el=document.getElementById('typeText');
+  el.innerHTML='';
+  let i=0;
+  const typing=setInterval(()=>{
+    el.innerHTML=text.slice(0,i)+'<span class="cursor"></span>';
+    i++;
+    if(i>text.length){
+      clearInterval(typing);
+      el.innerHTML=text;
+      setTimeout(()=>nextPage('pLove'),2500);
+    }
+  },70);
+}
 </script>
 
 </body>
