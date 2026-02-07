@@ -1,6 +1,8 @@
-# Selamat Datang
+# Selamat Datang di my ada dehh haha
 
-Ini adalah repository berisi file yang bisa dibaca oleh siapa saja.
+Ini file dibuatkan khusus untuk pacarku<3
+semoga senang melihatnya yaa bb<3
+I Love You<3
 
 ## Cara Membuka
 1. Klik file yang ada di daftar
